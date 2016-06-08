@@ -1,0 +1,4 @@
+PriorValleyWindow	PeakWindow	PeakHeight
+0	501	0.292958157
+630	34	0.22431604288
+258	995	0.42202147772
