@@ -73,16 +73,16 @@ for ($i = 0; $i < @SecPeakAoA; $i++){
 
 #build some arrays for secondary peaks associated with a single primary peak
 for ($i = 0; $i < @SecPeakAoA; $i++){
-  if ($SecPeakAoA[$i][1] eq 'L'){
-    unshift @ClusterPeakWindows, $SecPeakAoA[$i][2];
-    unshift @ClusterPeakHeights, $SecPeakAoA[$i][3];
-    unshift @ClusterValleyWindows, $SecPeakAoA[$i][4];
-  }
-  else{
+#  if ($SecPeakAoA[$i][1] eq 'L'){
+#    unshift @ClusterPeakWindows, $SecPeakAoA[$i][2];
+#    unshift @ClusterPeakHeights, $SecPeakAoA[$i][3];
+#    unshift @ClusterValleyWindows, $SecPeakAoA[$i][4];
+#  }
+#  else{
     push @ClusterPeakWindows, $SecPeakAoA[$i][2];
     push @ClusterPeakHeights, $SecPeakAoA[$i][3];
     push @ClusterValleyWindows, $SecPeakAoA[$i][4];
-  }
+#  }
   
 #if this is the last secondary peak in the cluster, add primary peak data and output to file
   if (($i == (@SecPeakAoA - 1)) || ($SecPeakAoA[$i+1][0] != $SecPeakAoA[$i][0])){
