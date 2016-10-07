@@ -135,7 +135,6 @@ if (($PeakNow == 1) && ($MaxDiff > $PrimThresh)){
 }
 $i = @RealPeakHeights;
 print "Found $i primary peaks above initial threshold for analysis\n";
-print @RealPeakHeights;
 
 #get sim peaks from input file(s)
 my @SimPeakAoA = ();
