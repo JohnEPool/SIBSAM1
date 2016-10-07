@@ -133,7 +133,9 @@ if (($PeakNow == 1) && ($MaxDiff > $PrimThresh)){
   push @RealPeakHeights, $MaxDiff;
   push @RealPeakWindows, $MaxWin;
 }
-
+$i = @RealPeakHeights;
+print "Found $i primary peaks above initial threshold for analysis\n";
+print @RealPeakHeights;
 
 #get sim peaks from input file(s)
 my @SimPeakAoA = ();
@@ -213,7 +215,13 @@ for ($i = 0; $i < @SortedPeakHeights; $i++){
     last;
   }
 }
-my $HeightThresh = (int(($LowestSignifPeakHeight + 0.0005) * 1000)) / 1000;
+
+my $HeightThresh = 0;
+if ($RealPeaksThisHigh == 0){
+  print "No primary peaks achieved significance\n";
+}  
+else{
+$HeightThresh = (int(($LowestSignifPeakHeight + 0.0005) * 1000)) / 1000;
 while ($HeightThresh > 0){
   $SimPeaksThisHigh = 0;
   for ($j = 0; $j < @SimPeakAoA; $j++){
@@ -238,6 +246,7 @@ while ($HeightThresh > 0){
     last;
   }
   $HeightThresh = $HeightThresh - 0.001;
+}
 }
 
 #zip up the null sim files to get them out of the way
