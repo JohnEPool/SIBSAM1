@@ -52,6 +52,12 @@ my $cMThresh = 0.5;  #Calculate "power" based on how many QTL peaks are within t
 my @ChromCMs = (75, 107, 110); 
 my $EnvVarSD = 1;  #Environmental variance:  value of 1 is analogous to 20% of the total genetic effort
 
+#More definitions
+my $multiple = $NCrosses;  #combine signals from this many independent crosses
+my $F1N = $F2N;  #Not currently varying the number of F1's independently
+my $LastN = $LastNf * 2;
+my $replicates = $TrueReps * $NCrosses; #how many replicates to actually simulate
+
 #Output Files
 my $OutputFile = 'BSAsimFull_L' . $NLoci . '_F' . $gens . '_N' . $F2N . '_LN' . $LastN . '_S' . $SelectionProp . '_D' . $SeqDepth . '_C' . $NCrosses . '_R'  . $TrueReps . '.txt';
 my $PowerFile = 'BSAsimPower_L' . $NLoci . '_F' . $gens . '_N' . $F2N . '_LN' . $LastN . '_S' . $SelectionProp . '_D' . $SeqDepth . '_C' . $NCrosses . '_R'  . $TrueReps . '.txt';
@@ -60,11 +66,6 @@ my $PowerFile = 'BSAsimPower_L' . $NLoci . '_F' . $gens . '_N' . $F2N . '_LN' . 
 
 
 
-#More definitions
-my $multiple = $NCrosses;  #combine signals from this many independent crosses
-my $F1N = $F2N;  #Not currently varying the number of F1's independently
-my $LastN = $LastNf * 2;
-my $replicates = $TrueReps * $NCrosses; #how many replicates to actually simulate
 
 #Set up locus positions and effects (current code assumes all loci are of equal magnitude and are distributed evenly across genome
 my @LocusPosX = ();
